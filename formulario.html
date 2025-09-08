@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro Policial</title>
+    <style>
+        /* Reset básico */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Mitad izquierda: video centrado */
+        .video {
+            flex: 0.5;             /* ocupa 50% del ancho de la pantalla */
+            display: flex;
+            justify-content: center;
+            align-items: center;   /* centra vertical y horizontalmente */
+            background: #000;
+        }
+
+        .video video {
+            width: 60%;    /* ancho del video dentro de la mitad izquierda */
+            height: auto;  /* mantiene proporción */
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        /* Mitad derecha: formulario */
+        .formulario {
+            flex: 0.5;             /* ocupa 50% del ancho */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+            padding: 40px;
+        }
+
+        form {
+            width: 100%;
+            max-width: 450px;
+            display: flex;
+            flex-direction: column;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        label {
+            margin-top: 12px;
+            font-weight: bold;
+        }
+
+        input, select {
+            margin-top: 6px;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Responsive: móvil */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .video {
+                flex: none;
+                width: 100%;
+                height: 120px;  /* altura reducida en móvil */
+            }
+
+            .video video {
+                width: 50%;     /* ancho reducido en móvil */
+                height: auto;
+            }
+
+            .formulario {
+                flex: none;
+                width: 100%;
+                padding: 20px;
+            }
+
+            form {
+                max-width: 90%;
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Video centrado -->
+        <div class="video">
+            <video autoplay muted loop>
+                <source src="imagen/WhatsApp Video 2025-09-07 at 9.32.21 PM.mp4" type="video/mp4">
+                Tu navegador no soporta el video.
+            </video>
+        </div>
+
+        <!-- Formulario -->
+        <div class="formulario">
+            <form action="procesar.php" method="POST">
+                <h1>PERSONAL PNP COMISARÍA CAJA DE AGUA</h1>
+
+                <label for="celular">Celular:</label>
+                <input type="tel" id="celular" name="celular" required>
+
+                <label for="codofin">Codofin:</label>
+                <input type="text" id="codofin" name="codofin" required>
+
+                <label for="cip">CIP:</label>
+                <input type="text" id="cip" name="cip" required>
+
+                <label for="dni">DNI:</label>
+                <input type="text" id="dni" name="dni" required>
+
+                <label for="grado">Grado:</label>
+                <input type="text" id="grado" name="grado" required>
+
+                <label for="apellidos_nombre">Apellidos y Nombre:</label>
+                <input type="text" id="apellidos_nombre" name="apellidos_nombre" required>
+
+                <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
+                <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required>
+
+                <label for="situacion_policial">Situación Policial:</label>
+                <input type="text" id="situacion_policial" name="situacion_policial" required>
+
+                <label for="situacion_especial">Situación Especial:</label>
+                <input type="text" id="situacion_especial" name="situacion_especial">
+
+                <label for="cargo">Cargo:</label>
+                <input type="text" id="cargo" name="cargo">
+
+                <label for="dni_tipo">DNI Azul / Electrónico:</label>
+                <select id="dni_tipo" name="dni_tipo" required>
+                    <option value="">--Seleccione--</option>
+                    <option value="Azul">Azul</option>
+                    <option value="Electrónico">Electrónico</option>
+                </select>
+
+                <label for="correo">Correo Electrónico:</label>
+                <input type="email" id="correo" name="correo" required>
+
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
+
